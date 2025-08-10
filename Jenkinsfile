@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Arrancar la app en segundo plano
-                    bat 'start /B cmd /C "npm start > output.log 2>&1"'
+                    bat 'start /B cmd /C "node index.js > output.log 2>&1"'
                     
                     echo "Aplicación iniciada. Esperando 60 segundos..."
                     sleep(time: 60, unit: "SECONDS")
