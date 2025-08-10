@@ -16,17 +16,18 @@ pipeline {
                 bat 'npm test'
             }
         }
-        stage('Package') {
+        stage('Start app for 60 seconds') {
             steps {
-                bat 'powershell -Command "Compress-Archive -Path * -DestinationPath math-operations-app.zip"'
-            }
-        }
-        stage('Deploy simulation') {
-            steps {
-                bat '''
-                if not exist deploy mkdir deploy
-                move math-operations-app.zip deploy\\
-                '''
+                script {
+                    // Arrancar la app en segundo plano
+                    bat 'start /B cmd /C "npm start > output.log 2>&1"'
+                    
+                    echo "Aplicación iniciada. Esperando 60 segundos..."
+                    sleep(time: 60, unit: "SECONDS")
+                    
+                    // Matar el proceso de Node
+                    bat 'taskkill /F /IM node.exe || exit 0'
+                }
             }
         }
     }
