@@ -1,8 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18'  // Usa la imagen oficial de node con npm
-        }
+    agent any
+
+    tools {
+        nodejs 'NodeJS' // nombre que le diste en la configuración global
     }
 
     stages {
