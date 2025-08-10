@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'  // Usa la imagen oficial de node con npm
+        }
+    }
 
     stages {
         stage('Install dependencies') {
