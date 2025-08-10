@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Verificar archivos') {
             steps {
-                sh 'ls -R'
+                bat 'dir'
             }
         }
         stage('Start app for 60 seconds') {
