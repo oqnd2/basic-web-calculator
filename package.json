@@ -1,5 +1,5 @@
 {
-  "name": "simple-operations-app",
+  "name": "basic-web-calculator",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
