@@ -16,11 +16,6 @@ pipeline {
                 bat 'npm test'
             }
         }
-        stage('Verificar archivos') {
-            steps {
-                bat 'dir'
-            }
-        }
         stage('Start app for 60 seconds') {
             steps {
                 script {
