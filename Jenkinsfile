@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/oqnd2/basic-web-calculator.git'
-            }
-        }
         stage('Install dependencies') {
             steps {
                 sh 'npm install'
