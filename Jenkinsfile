@@ -40,6 +40,7 @@ pipeline {
                 body: """<p>Hola!.</p>
                          <p>El pipeline <b>${env.JOB_NAME}</b> (#${env.BUILD_NUMBER}) se ejecutó correctamente.</p>
                          <p>Revisa la aplicación para confirmar que todo funciona bien.</p>""",
+                to: 'oquendo2flo@gmail.com',
                 mimeType: 'text/html'
             )
         }
@@ -50,6 +51,7 @@ pipeline {
                 body: """<p>Hola Felipe,</p>
                          <p>El pipeline <b>${env.JOB_NAME}</b> (#${env.BUILD_NUMBER}) falló.</p>
                          <p>Revisa los logs en Jenkins para encontrar la causa.</p>""",
+                to: 'oquendo2flo@gmail.com',
                 mimeType: 'text/html'
             )
         }
