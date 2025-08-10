@@ -37,22 +37,16 @@ pipeline {
             echo "Pipeline completed successfully."
             emailext(
                 subject: "✅ Deploy exitoso - Math Operations",
-                body: """<p>Hola!.</p>
-                         <p>El pipeline <b>${env.JOB_NAME}</b> (#${env.BUILD_NUMBER}) se ejecutó correctamente.</p>
-                         <p>Revisa la aplicación para confirmar que todo funciona bien.</p>""",
-                to: 'oquendo2flo@gmail.com',
-                mimeType: 'text/html'
+                body: "Todo salió bien.",
+                to: 'oquendo2flo@gmail.com'
             )
         }
         failure {
             echo "Pipeline failed."
             emailext(
                 subject: "❌ Deploy fallido - Math Operations",
-                body: """<p>Hola Felipe,</p>
-                         <p>El pipeline <b>${env.JOB_NAME}</b> (#${env.BUILD_NUMBER}) falló.</p>
-                         <p>Revisa los logs en Jenkins para encontrar la causa.</p>""",
-                to: 'oquendo2flo@gmail.com',
-                mimeType: 'text/html'
+                body: "Algo ha fallado.",
+                to: 'oquendo2flo@gmail.com'
             )
         }
     }
