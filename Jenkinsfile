@@ -8,22 +8,25 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Run tests') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
         stage('Package') {
             steps {
-                sh 'zip -r math-operations-app.zip .'
+                bat 'powershell -Command "Compress-Archive -Path * -DestinationPath math-operations-app.zip"'
             }
         }
         stage('Deploy simulation') {
             steps {
-                sh 'mkdir -p deploy && mv math-operations-app.zip deploy/'
+                bat '''
+                if not exist deploy mkdir deploy
+                move math-operations-app.zip deploy\\
+                '''
             }
         }
     }
